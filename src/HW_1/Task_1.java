@@ -28,6 +28,6 @@ public class Task_1 {
         } else {
             System.out.print("Число должно быть больше 0 !");
         }
-
+        scanner.close();
     }
 }
