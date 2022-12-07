@@ -13,11 +13,16 @@ public class Task_4 {
         int res = 69;
         String[] digits = Integer.toString(res).split("");
         System.out.print(Arrays.toString(digits));
-
+//         for (int i = 0; i < 5; i++) {
+//             for (int j = 0; j < 5; j++) {
+//                 System.out.print("* ");
+//             }
+//             System.out.println();
+//         }
         for (int i = 0; i < 10; i++) {
             int q = Integer.parseInt(first[0]) + i;
             System.out.printf("q = %s  ", q);
-            for (int j = 10; j < res; j =+ 10) {
+            for (int j = 0; j < 69; j++) {
                 int w = Integer.parseInt(second[1]) + j;
                 System.out.printf("w = %s ", w);
                 System.out.print("\n");
@@ -25,15 +30,12 @@ public class Task_4 {
                     System.out.printf("\nПервое слагаемое: %s , второе слагаемое: %s\n", q, w);
                     System.out.printf("%s + %s = 69 ", q, w);
                     break;
-                }
-                else {
+                } else {
                     System.out.print("\nРешения нет. \n");
                     break;
                 }
             }
 
         }
-
-
     }
 }
