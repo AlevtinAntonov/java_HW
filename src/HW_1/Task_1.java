@@ -2,7 +2,6 @@
 n!(произведение чисел от 1 до n)*/
 package HW_1;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task_1 {
@@ -11,18 +10,15 @@ public class Task_1 {
         System.out.print("Введите число n: ");
         int n = scanner.nextInt();
 
-        int[] arr = new int[n];
         int arrSum = 0;
         int arrMulti = 1;
         if (n > 0) {
-            for (int i = 1; i < n + 1; i++) {
-                arr[i - 1] = i;
+            for (int i = 1; i <= n; i++) {
+                System.out.print(i + " ");
                 arrSum += i;
                 arrMulti *= i;
             }
-            System.out.print(Arrays.toString(arr));
-            System.out.print("\n");
-            System.out.printf("Сумма от 1 до %s = %s", n, arrSum);
+            System.out.printf("\nСумма от 1 до %s = %s", n, arrSum);
             System.out.print("\n");
             System.out.printf("Произведение чисел от 1 до %s = %s", n, arrMulti);
         } else {
