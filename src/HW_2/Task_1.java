@@ -5,6 +5,7 @@
 package HW_2;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Task_1 {
     public static void main(String[] args) {
@@ -23,7 +24,7 @@ public class Task_1 {
             return result.toString();
 
         for (Map.Entry<String, String> entry : parameters.entrySet()) {
-            if (entry.getKey() == "null" || entry.getValue() == "null")
+            if (Objects.equals(entry.getKey(), "null") || Objects.equals(entry.getValue(), "null"))
                 continue;
             result.append(entry.getKey()).append(" = '").append(entry.getValue()).append("' AND ");
         }
