@@ -16,32 +16,29 @@ public class Task_3 {
         int min = arrayList.get(0);
         int max;
         max = arrayList.get(arrayList.size() - 1);
-        int sum = 0, average, mid, a1 = arrayList.get(0), a2 = arrayList.get(0);
+
+        int sum = 0;
 
         for (int item : arrayList) {
             sum += item;
         }
-        mid = sum / arrayList.size();
-        System.out.println(mid);
-        for (int item : arrayList) {
-            if (item <= mid & item > min) {
-                a1 = item;
-            }
-            if (item >= mid & item < max) {
-                a2 = item;
-            }
-        }
-        if (mid - a1 > a2 - mid) {
-            average = a2;
-        } else {
-            average = a1;
-        }
+        int middle = sum / arrayList.size();
 
+        int average = middle;
+        int min_diff = Integer.MAX_VALUE;
+
+        for (int item : arrayList) {
+            final int diff = Math.abs(item - middle);
+
+            if (diff < min_diff) {
+                min_diff = diff;
+                average = item;
+            }
+        }
         System.out.println("Минимум - " + min);
         System.out.println("Максимум - " + max);
+        System.out.println("Среднее арифметическое в массиве - " + middle);
         System.out.println("Среднее в массиве - " + average);
-
-
     }
 }
 
