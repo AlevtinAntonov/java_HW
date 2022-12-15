@@ -20,7 +20,7 @@ public class Task_2 {
         FileHandler fh;
         logger.setUseParentHandlers(false);
         try {
-            fh = new FileHandler("log.log", true);
+            fh = new FileHandler("src/HW_2/log.log", true);
             logger.addHandler(fh);
             fh.setFormatter(new SimpleFormatter());
             logger.info("Исходный массив: " + Arrays.toString(array));
