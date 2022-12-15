@@ -11,13 +11,18 @@ public class Task_2 {
             arrayList.add((int) (Math.random() * 100));
         }
         System.out.println("Исходный массив:  " + arrayList);
-        Iterator iterator = arrayList.iterator();
 
-        for (Iterator i = iterator; i.hasNext(); ) {
-            if (((int) i.next() % 2) == 0) {
-                i.remove();
-            }
-        }
+        /* 1 вариант */
+//        Iterator iterator = arrayList.iterator();
+//
+//        for (Iterator i = iterator; i.hasNext(); ) {
+//            if (((int) i.next() % 2) == 0) {
+//                i.remove();
+//            }
+//        }
+        /*2 вариант*/
+        arrayList.removeIf(i -> (i % 2 == 0));
+
         System.out.println("Массив нечетных чисел:  " + arrayList);
 
     }
