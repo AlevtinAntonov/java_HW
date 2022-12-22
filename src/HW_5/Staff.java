@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class Task_2 {
+public class Staff {
     public static void main(String[] args) {
         Map<String, Integer> staffMap = new HashMap<>();
         StringBuilder sb;
