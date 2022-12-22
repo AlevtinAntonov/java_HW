@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Task_1 {
+public class PhoneBook {
     static HashMap<String, ArrayList<String>> phoneBook = new HashMap<>();
 
     public static void main(String[] args) {
 
         boolean f = true;
-        String key = null;
-        String value = null;
+        String key;
+        String value;
         while (f) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Ведите фамилию и имя: ");
