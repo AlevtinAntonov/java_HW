@@ -13,7 +13,8 @@ public class NoteBooks {
     double price;
     String operatingSystem;
     String color;
-    public NoteBooks(){
+
+    public NoteBooks() {
     }
 
     public NoteBooks(int id, String brand, String model, String screenResolution, String processor,
@@ -125,7 +126,7 @@ public class NoteBooks {
 
     @Override
     public String toString() {
-        return "NoteBooks{" +
+        return "\nNoteBooks{" +
                 "id=" + id +
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
@@ -136,7 +137,7 @@ public class NoteBooks {
                 ", price=" + price +
                 ", operatingSystem='" + operatingSystem + '\'' +
                 ", color='" + color + '\'' +
-                '}' + "\n";
+                '}';
     }
 
 }

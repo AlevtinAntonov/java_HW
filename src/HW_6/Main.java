@@ -22,24 +22,9 @@ public class Main {
     private static String noteBooksFile = "src/HW_6/notebooks.csv";
 
     public static void main(String[] args) throws IOException {
-//        ArrayList<NoteBooks> noteBooks = loadNoteBooksFromFile();
-        NoteBooks noteBooks_1 = new NoteBooks(1000143954,"HP","620","1366x768","Intel Core 2 Duo T6670","2048Mb","320Gb",
-                48253,"Windows 10","silver");
-        NoteBooks noteBooks_2 = new NoteBooks(1000143955,"HP","620","1366x768","Intel Core 2 Duo T6670","2048Mb","320Gb",
-                48253,"Windows 10","silver");
-        NoteBooks noteBooks_3 = new NoteBooks(1000143956,"HP","620","1366x768","Intel Core 2 Duo T6670","2048Mb","320Gb",
-                48253,"Windows 10","silver");
-        NoteBooks noteBooks_4 = new NoteBooks(1000143957,"HP","620","1366x768","Intel Core 2 Duo T6670","2048Mb","320Gb",
-                48253,"Windows 10","silver");
-
-        Set<NoteBooks> noteBooksSet = new HashSet();
-        noteBooksSet.add(noteBooks_1);
-        noteBooksSet.add(noteBooks_2);
-        noteBooksSet.add(noteBooks_3);
-        noteBooksSet.add(noteBooks_4);
-
-        System.out.println(noteBooksSet);
-
+        ArrayList<NoteBooks> noteBooks = loadNoteBooksFromFile();
+        System.out.println(noteBooks);
+//        createSet();
     }
 
     private static ArrayList<NoteBooks> loadNoteBooksFromFile() throws IOException {
@@ -70,5 +55,24 @@ public class Main {
             ex.printStackTrace();
         }
         return noteBooks;
+    }
+
+    public static void createSet(){
+        NoteBooks noteBooks_1 = new NoteBooks(1000143954,"HP","620","1366x768","Intel Core 2 Duo T6670","2048Mb","320Gb",
+                48253,"Windows 10","silver");
+        NoteBooks noteBooks_2 = new NoteBooks(1000143955,"HP","620","1366x768","Intel Core 2 Duo T6670","2048Mb","320Gb",
+                48253,"Windows 10","silver");
+        NoteBooks noteBooks_3 = new NoteBooks(1000143956,"HP","620","1366x768","Intel Core 2 Duo T6670","2048Mb","320Gb",
+                48253,"Windows 10","silver");
+        NoteBooks noteBooks_4 = new NoteBooks(1000143957,"HP","620","1366x768","Intel Core 2 Duo T6670","2048Mb","320Gb",
+                48253,"Windows 10","silver");
+
+        Set<NoteBooks> noteBooksSet = new HashSet();
+        noteBooksSet.add(noteBooks_1);
+        noteBooksSet.add(noteBooks_2);
+        noteBooksSet.add(noteBooks_3);
+        noteBooksSet.add(noteBooks_4);
+
+        System.out.println(noteBooksSet);
     }
 }
