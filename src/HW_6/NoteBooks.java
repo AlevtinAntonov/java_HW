@@ -1,25 +1,23 @@
 package HW_6;
 
-import java.util.Objects;
+import java.util.*;
 
 public class NoteBooks {
-    int id;
-    String brand;
-    String model;
-    String screenResolution;
-    String processor;
-    String ram;
-    String hardDrive;
-    double price;
-    String operatingSystem;
-    String color;
+    private String brand;
+    private String model;
+    private String screenResolution;
+    private String processor;
+    private String ram;
+    private String hardDrive;
+    private double price;
+    private String operatingSystem;
+    private String color;
 
     public NoteBooks() {
     }
 
-    public NoteBooks(int id, String brand, String model, String screenResolution, String processor,
+    public NoteBooks(String brand, String model, String screenResolution, String processor,
                      String ram, String hardDrive, double price, String operatingSystem, String color) {
-        this.id = id;
         this.brand = brand;
         this.model = model;
         this.screenResolution = screenResolution;
@@ -29,14 +27,6 @@ public class NoteBooks {
         this.price = price;
         this.operatingSystem = operatingSystem;
         this.color = color;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getBrand() {
@@ -116,29 +106,79 @@ public class NoteBooks {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NoteBooks noteBooks = (NoteBooks) o;
-        return id == noteBooks.id && brand.equals(noteBooks.brand) && model.equals(noteBooks.model) && Objects.equals(screenResolution, noteBooks.screenResolution) && processor.equals(noteBooks.processor) && ram.equals(noteBooks.ram) && hardDrive.equals(noteBooks.hardDrive) && Objects.equals(color, noteBooks.color);
+        return brand.equals(noteBooks.brand) && model.equals(noteBooks.model) && Objects.equals(screenResolution, noteBooks.screenResolution) && processor.equals(noteBooks.processor) && ram.equals(noteBooks.ram) && hardDrive.equals(noteBooks.hardDrive) && Objects.equals(color, noteBooks.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, model, screenResolution, processor, ram, hardDrive, color);
+        return Objects.hash(brand, model, screenResolution, processor, ram, hardDrive, color);
     }
 
+    public Object filter(Set<NoteBooks> noteBooks) {
+        Scanner scanner = new Scanner(System.in);
+        Set<NoteBooks> setNotebooks = new HashSet<>(noteBooks);
+
+        System.out.println("Введите номер или номера критериев фильрации ноутбуков:\n" +
+                           "1 - ОЗУ\n" +
+                           "2 - Объем ЖД\n" +
+                           "3 - Операционная система\n" +
+                           "4 - Цвет");
+        String userChoice = scanner.nextLine();
+
+        for (int i = 0; i < userChoice.length(); i++) {
+            if (Character.getNumericValue(userChoice.charAt(i)) == 1) {
+                System.out.println("Введите минимальный размер ОЗУ в Гб\nВ наличии : 4, 8, 16 ");
+                String enterRam = scanner.nextLine();
+                for (NoteBooks tempNote : noteBooks) {
+                    if (!enterRam.equals(tempNote.ram) && Integer.parseInt(tempNote.ram) < Integer.parseInt(enterRam)) {
+                        setNotebooks.remove(tempNote);
+                    }
+                }
+            }
+            if (Character.getNumericValue(userChoice.charAt(i)) == 2) {
+                System.out.println("Введите минимальный объем ЖД в Гб\nВ наличии : 320, 500, 640 ");
+                String enterHardDrive = scanner.nextLine();
+                for (NoteBooks tempNote : noteBooks) {
+                    if (!enterHardDrive.equals(tempNote.hardDrive) && Integer.parseInt(tempNote.hardDrive) < Integer.parseInt(enterHardDrive)) {
+                        setNotebooks.remove(tempNote);
+                    }
+                }
+            }
+            if (Character.getNumericValue(userChoice.charAt(i)) == 3) {
+                System.out.println("Введите Операционную систему\nВ наличии : Windows, Linux, MsDos ");
+                String enterOS = scanner.nextLine();
+                for (NoteBooks tempNote : noteBooks) {
+                    if (!enterOS.equals(tempNote.operatingSystem)) {
+                        setNotebooks.remove(tempNote);
+                    }
+                }
+            }
+            if (Character.getNumericValue(userChoice.charAt(i)) == 4) {
+                System.out.println("Введите Цвет\nВ наличии : silver, black, white ");
+                String enterColor = scanner.nextLine();
+                for (NoteBooks tempNote : noteBooks) {
+                    if (!enterColor.equals(tempNote.color)) {
+                        setNotebooks.remove(tempNote);
+                    }
+                }
+            }
+        }
+        if (setNotebooks.isEmpty()){
+            return "Такого ноутбука нет в наличии ";
+        }
+        return setNotebooks;
+    }
     @Override
     public String toString() {
-        return "\nNoteBooks{" +
-                "id=" + id +
-                ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", screenResolution='" + screenResolution + '\'' +
-                ", processor='" + processor + '\'' +
-                ", ram='" + ram + '\'' +
-                ", hardDrive='" + hardDrive + '\'' +
-                ", price=" + price +
-                ", operatingSystem='" + operatingSystem + '\'' +
-                ", color='" + color + '\'' +
-                '}';
+        return "\n{brand='" + brand + '\'' +
+               ", model='" + model + '\'' +
+               ", screenResolution='" + screenResolution + '\'' +
+               ", processor='" + processor + '\'' +
+               ", ram='" + ram + '\'' +
+               ", hardDrive='" + hardDrive + '\'' +
+               ", price=" + price +
+               ", operatingSystem='" + operatingSystem + '\'' +
+               ", color='" + color + '\'' + "}, ";
     }
-
 }
 
